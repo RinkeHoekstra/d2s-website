@@ -1,18 +1,23 @@
 ---
 title: Landing Page
 description: Test description
+date: 2012-03-25
+title_ending: "| Landing Page"
+tags:
+    - sort
+learning_order: 1
 ---
 
 {% extends "topbar.j2" %}
 
 
-{% block css %}
+<!-- {% block css %}
 <style type="text/css">
   body {
     padding-top: 60px;
   }
 </style>
-{% endblock css %}
+{% endblock css %} -->
 
 {#
     You can put the HTML in the "content" folder but it's not recommended. The aim of Hyde is to abstract the
@@ -28,18 +33,24 @@ description: Test description
     <p>{% filter markdown -%}This particular page is based on Bootstrap's [hero.html](http://twitter.github.com/bootstrap/examples/hero.html) example.{%- endfilter %}</p>
     <p><a class="btn primary large">Learn more &raquo;</a></p>
   </div>
-  <div class="row">
-    <div class="span-one-third">
+  <div class="row-fluid">
+    <div class="span4">
       <h2>Heading</h2>
-      <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+		{% filter markdown -%}
+{% for res in resource.node.walk_resources_sorted_by_date() %}
+{{ loop.index }}. [{{ res.slug|capitalize }}]({{ res.full_url }})
+{% endfor %}
+{%- endfilter %}
+	
+
       <p><a class="btn" href="#">View details &raquo;</a></p>
     </div>
-    <div class="span-one-third">
+    <div class="span4">
       <h2>Heading</h2>
        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
       <p><a class="btn" href="#">View details &raquo;</a></p>
    </div>
-    <div class="span-one-third">
+    <div class="span4">
       <h2>Heading</h2>
       <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
       <p><a class="btn" href="#">View details &raquo;</a></p>

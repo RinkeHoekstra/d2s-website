@@ -5,3 +5,12 @@
 {%- endfor %}
 </ul>
 {%- endmacro %}
+
+
+{% macro render_icon_bar() -%}
+<ul class="nav">
+{% for menu_item in menu -%}
+	<span class="icon-bar"></span>
+{%- endfor %}
+</ul>
+{%- endmacro %}

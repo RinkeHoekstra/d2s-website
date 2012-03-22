@@ -10,23 +10,28 @@
 
 {% block content %}
 
-<div class="page-header">
-  {% block header %}
-  <h1>
-    {% block page_title %}{{ resource.meta.title }}{% endblock %}
-    {% if resource.meta.subtitle %}<small>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</small>{% endif %}
-  </h1>
-  {% endblock header %}
-</div>
 
-<div class="row">
+
+<div class="row-fluid">
+	
   <div class="span10">
+	  {% block header %}
+		<div class="hero-unit">
+		  <h1>
+		    {% block page_title %}{{ resource.meta.title }}{% endblock %}
+		    {% if resource.meta.subtitle %}<small>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</small>{% endif %}
+		  </h1>
+		</div>
+	  {% endblock header %}
+	
       {% filter markdown -%}
       {% block main %}{% endblock %}
       {%- endfilter %}
   </div>
-  <div class="span4">
-    {% block sidebar %}{% endblock %}
+  <div class="span2">
+		<div class="well sidebar-nav">
+    	{% block sidebar %}{% endblock %}
+		</div>
   </div>
 </div>
 

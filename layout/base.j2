@@ -14,6 +14,8 @@
 
     {% block basecss %}
     <link href="{{ media_url('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ media_url('css/bootstrap-responsive.css') }}" rel="stylesheet">
+
     <link href="{{ media_url('css/style.css') }}" rel="stylesheet">
     {% endblock basecss %}
     {% block css %}{% endblock %}
@@ -44,6 +46,9 @@
     <div class="container" id="top">
       {% block container %}
 
+			<div class="logo">
+				<img src="{{ media_url('img/logo-no-text-150dpi.png') }}"/>
+			</div>
       <div class="content">
         {# This is where the bulk of the content will go #}
         {% block content %}
@@ -71,14 +76,9 @@
 
     {% block bootstrap_scripts %}
     {# Uncomment any of these lines to enable that plugin on your site #}
-{#    <script src="{{ media_url('js/libs/bootstrap-alerts.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-buttons.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-dropdown.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-modal.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-popover.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-scrollspy.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-tabs.js') }}"></script>#}
-{#    <script src="{{ media_url('js/libs/bootstrap-twipsy.js') }}"></script>#}
+		
+	<script src="{{ media_url('js/libs/bootstrap.js') }}"></script>
+
     {% endblock bootstrap_scripts %}
 
     {% block scripts %}

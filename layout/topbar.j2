@@ -5,17 +5,23 @@
 
 
 {% block body %}
-<div class="topbar">
+
   {% block topbar %}
-  <div class="fill">
-    <div class="container">
-      <a class="brand" href="{{ home_url }}">{{ site_title }}</a>
-      {% from "macros.j2" import render_main_menu with context %}
-      {{ render_main_menu() }}
-    </div>
-  </div>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container-fluid">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				{% from "macros.j2" import render_icon_bar with context %}
+				{{ render_icon_bar() }}
+			</a>
+	      	<a class="brand" href="{{ home_url }}">{{ site_title }}</a>
+			{% from "macros.j2" import render_main_menu with context %}
+			{{ render_main_menu() }}
+	    </div>
+	  </div>
+	</div>
   {% endblock topbar %}
-</div>
+
 
 {{ super() }} {# Use this to include the rest of the body block as it was originally defined #}
 

@@ -1,1 +1,31 @@
 /* Put your styles here */
+
+
+/* Move logo left and content up */
+.logo {
+	margin-left: -150px;
+}
+
+.content {
+	margin-top: -145px;
+}
+
+
+/* Typefaces
+-----------------------------------------------*/
+@font-face {
+	font-family: "Graublau Web Regular";
+	src: url("type/GraublauWeb.eot");
+	src: local("Graublau Web Regular"), local("GraublauWeb-Regular"),
+		url("type/GraublauWeb.woff") format("woff"),
+		url("type/GraublauWeb.otf") format("opentype"),
+		url("type/GraublauWeb.svg#GraublauWeb-Regular") format("svg");
+	}
+@font-face {
+	font-family: "Graublau Web Bold";
+	src: url("type/GraublauWebBold.eot");
+	src: local("Graublau Web Bold"), local("GraublauWeb-Bold"),
+		url("type/GraublauWebBold.woff") format("woff"),
+		url("type/GraublauWebBold.otf") format("opentype"),
+		url("type/GraublauWebBold.svg#GraublauWeb-Bold") format("svg");
+	}

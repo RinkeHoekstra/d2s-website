@@ -6,6 +6,7 @@ plugins:
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.syntext.SyntextPlugin
     - hyde.ext.plugins.textlinks.TextlinksPlugin
+    - hyde.ext.plugins.sorter.SorterPlugin
 context:
     data:
         site_title: Site Name
@@ -19,3 +20,29 @@ context:
               url: index.html
             - title: Landing
               url: landing.html
+              
+sorter:
+    blog:
+      attr: meta.date
+      filters:
+          source_file.kind: html
+          meta.type: "post"
+    name: # the name of the sorter (no pun intended)
+      attr: name # by which attributes will resources be sorted
+      filters:
+          source_file.kind: html
+          # You can include only files from a certain folder.
+          #resource.node: (name of the folder)
+      #reverse: True # if you need the list backwards
+    file_type:
+      attr: 
+          - source_file.kind
+          - source_file.size
+    date:
+      attr: meta.date
+      filters:
+          source_file.kind: html
+    learning_order:
+      attr: meta.learning_order
+      filters:
+          source_file.kind: html
