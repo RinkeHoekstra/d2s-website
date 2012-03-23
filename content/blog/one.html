@@ -1,21 +1,10 @@
 ---
-title: One
-author: Rinke
+title: TabLinker v0.1a
+author: Rinke Hoekstra
 date: 2012-03-24
 type: post
 summary: This is the summary of the first post
+text: /blog/one.txt
 ---
 
-{% if res.meta.title is not defined %}
-	{% extends "columns.j2" %}
-{% endif %}
-
-{% block main %}
-
-{{ resource.node.url }}
-
-Dit is een test
-
-{{ res.meta.title }}
-
-{% endblock main %}
+{% extends "blogpost.j2" %}

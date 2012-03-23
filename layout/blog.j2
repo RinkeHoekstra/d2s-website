@@ -2,15 +2,23 @@
 
 {% extends "columns.j2" %}
 
+{% block header %}
+	<div class="jumbotron subhead" id="overview">
+	  <h1>
+	    {% block page_title %}{{ resource.meta.title }}{% endblock %}
+	    {% if resource.meta.subtitle %}<p class="lead">{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %}
+	  </h1>
+	</div>
+{% endblock header %}
 
 
 {% block main %}
 
 {% for res in resource.node.walk_resources_sorted_by_blog() %}
-## [{{ res.meta.title }}]({{ res.full_url }}) <small> {{ res.meta.author }} </small>
+## [{{ res.meta.title }}]({{ res.meta.file }}) <small> {{ res.meta.author }} </small>
 ** {{ res.meta.date }} **
 
-{% include res.full_url %}
+{% include res.meta.text %}
 
 {% endfor %}
 

@@ -1,0 +1,6 @@
+{% for res in resource.node.walk_resources_sorted_by_blog() %}
+## [{{ res.meta.title }}]({{ res.meta.file }}) <small> {{ res.meta.author }} </small>
+** {{ res.meta.date }} **
+
+
+{% endfor %}
