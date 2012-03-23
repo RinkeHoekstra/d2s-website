@@ -1,0 +1,78 @@
+{# Landing template #}
+
+
+
+{% extends "topbar.j2" %}
+
+{% block content %}
+<div class="row">
+	
+  <div class="span12">
+	  {% block header %}
+		<div class="hero-unit landing">
+		  <h1>
+		    {% block page_title %}{{ resource.meta.title }}{% endblock %}
+		    {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %}
+		  </h1>
+		</div>
+	  {% endblock header %}
+  </div>
+</div>
+
+<div class="row">
+	<div class="span9">
+		{% filter markdown -%}
+    {% block main %}{% endblock %}
+    {%- endfilter %}
+	</div>
+  <div class="span3">
+		{% for res in resource.node.walk_resources_sorted_by_pages() %}
+		{% if loop.index % 2 == 1 %}
+			<div class="row-fluid">
+		{% endif %}
+				<div class="well">
+					<img src="{{ media_url('img/' + res.meta.icon )}}" class="icon">
+					<h1>{{ res.meta.title }}</h1>
+					<a href="{{ res.full_url }}">{{ res.meta.subtitle }} <i class="icon-share-alt"></i></a>
+			  </div>
+		{% if loop.index % 2 == 0 or loop.last %}
+			</div>
+		{% endif %}
+		{% endfor %}
+  </div>
+</div>
+<div class="row">
+	<div class="span1">
+			<h1 class="rotated">News</h1>
+			<p class="subrotated"><a href="blog.html">Latest and greatest <i class="icon-share-alt"></i></a></p>
+	</div>
+	<div class="span8">
+		{% for res in resource.node.walk_resources_sorted_by_blog()[:4] %}
+		{% if loop.index % 2 == 1 %}
+		<div class="row">
+		{% endif %}
+		<div class="span4">
+			<div class="well">
+				<h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h2>
+				{{ res.meta.summary }}
+		  </div>
+		</div>
+		{% if loop.index % 2 == 0 or loop.last %}
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div>
+	<div class="span3">
+		{% for res in resource.node.walk_resources_sorted_by_links() %}
+				<div class="well">
+					<a href="{{ res.meta.url }}"><img alt="{{ res.meta.title }}" src="{{ media_url('img/' + res.meta.icon )}}" class="linkicon"></a>
+			  </div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock content %}
+
+
+
+

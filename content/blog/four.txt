@@ -1,0 +1,10 @@
+{{ resource.node.url }}
+
+Dit is een test 2
+
+Nog meer
+
+** in bold **
+
+{{ res.meta.title }}
+

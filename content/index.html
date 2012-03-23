@@ -1,6 +1,6 @@
 ---
-title: Page name
-subtitle: Columns template
+title: Data2Semantics
+subtitle: From Data to Semantics for Scientific Data Publishers
 description: Test description
 date: 2012-03-26
 title_ending: "| Landing Page"
@@ -9,20 +9,20 @@ tags:
 learning_order: 2
 ---
 
-{% extends "columns.j2" %}
+{% extends "landing.j2" %}
 
 {% block main %}
-## Main content
+## About Data2Semantics
 
-[hyde-bootstrap](http://github.com/auzigog/hyde-bootstrap/) is a layout for Hyde based on the Bootstrap framework.
+Data2Semantics studies and develops essential semantic infrastructure for bringing [e-Science](http://en.wikipedia.org/wiki/E-Science) to the next level.
+	
+A core task for scientific publishers is to speed up [scientific progress](http://en.wikipedia.org/wiki/Scientific_progress) by improving the availability of [scientific knowledge](http://en.wikipedia.org/wiki/Science). This holds both for dissemination of results through traditional publications, as well as through the publication of [scientific data](http://en.wikipedia.org/wiki/Data). The Data2Semantics project focuses on a key problem for data management in e-Science:
 
-This particular page is based on Bootstrap's [container-app.html](http://twitter.github.com/bootstrap/examples/container-app.html) example.
+<div class="alert alert-info"><em>How to <strong>share</strong>, <strong>publish</strong>, <strong>access</strong>, <strong>analyse</strong>, <strong>interpret </strong>and<strong> reuse</strong> data?</em></div>
 
-{% for res in resource.node.walk_resources_sorted_by_blog() %}
-{{ loop.index }}. [{{ res.slug|capitalize }}]({{ res.full_url }})
-{% endfor %}
+Data2Semantics is a collaboration between the [VU University Amsterdam](http://www.vu.nl/), the [University of Amsterdam](http://www.uva.nl), [Data Archiving and Networked Services (DANS)](http://www.dans.knaw.nl/) of the [KNAW](http://en.wikipedia.org/wiki/Royal_Netherlands_Academy_of_Arts_and_Sciences), [Elsevier Publishing](http://www.elsevier.com) and [Philips](http://www.philips.com), and is funded under the [COMMIT](http://www.commit-nl.nl) programme of the [NL Agency of the Dutch Ministry of Economic Affairs, Agriculture and Innovation](http://www.agentschapnl.nl/en).
 
-{{ resource.node.url }}
+<a class="btn btn-large btn-primary" href="/about.html"><i class="icon-share-alt icon-white"></i> More Information</a>
 
 {% endblock main %}
 

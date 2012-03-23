@@ -15,8 +15,10 @@
 {% block main %}
 
 {% for res in resource.node.walk_resources_sorted_by_blog() %}
-## [{{ res.meta.title }}]({{ res.meta.file }}) <small> {{ res.meta.author }} </small>
-** {{ res.meta.date }} **
+
+<div class="page-header">
+	<h1><a href="{{ res.meta.file }}">{{ res.meta.title }}</a> <small>{{ res.meta.summary }}</small><small class="postmeta"> by {{ res.meta.author }} on <strong>{{ res.meta.date.strftime('%d %B %Y') }}</strong></small>
+</div>
 
 {% include res.meta.text %}
 
