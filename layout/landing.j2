@@ -4,23 +4,28 @@
 
 {% extends "topbar.j2" %}
 
-{% block content %}
-<div class="row">
-	
-  <div class="span12">
-	  {% block header %}
-		<div class="hero-unit landing">
+{% block header %}
+		<div class="header">
 		  {# <h1> #}
 		    {% block page_title %}<img src="{{ media_url( 'img/title.png' ) }}" alt="{{ resource.meta.title }}">{% endblock %}
 		  {# </h1> #}
 		  {# {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %} #}
 		</div>
-	  {% endblock header %}
-  </div>
-</div>
+{% endblock header %}
+
+{% block content %}
+
+
+
 
 <div class="row">
-	<div class="span9">
+	<div class="span1">
+		<div class="sidehead">
+			<h2>About</h2>
+			<p><a href="about.html">More <i class="icon-share-alt"></i></a></p>
+		</div>
+	</div>
+	<div class="span8">
 		{% filter markdown -%}
     {% block main %}{% endblock %}
     {%- endfilter %}
@@ -32,7 +37,7 @@
 		{% endif %}
 				<div class="well">
 					<img src="{{ media_url('img/' + res.meta.icon )}}" class="icon">
-					<h1>{{ res.meta.title }}</h1>
+					<h2>{{ res.meta.title }}</h2>
 					<a href="{{ res.full_url }}">{{ res.meta.subtitle }} <i class="icon-share-alt"></i></a>
 			  </div>
 		{% if loop.index % 2 == 0 or loop.last %}
@@ -42,9 +47,16 @@
   </div>
 </div>
 <div class="row">
+	<div class="span1"><hr/></div>
+	<div class="span8"><hr/></div>
+	<div class="span3"><hr/></div>
+</div>
+<div class="row">
 	<div class="span1">
-			<h1 class="rotated">News</h1>
-			<p class="subrotated"><a href="blog.html">Latest and greatest <i class="icon-share-alt"></i></a></p>
+			<div class="sidehead">
+				<h2>News</h2>
+				<p><a href="blog.html">Latest and greatest <i class="icon-share-alt"></i></a></p>
+			</div>
 	</div>
 	<div class="span8">
 		{% for res in resource.node.walk_resources_sorted_by_blog()[:4] %}

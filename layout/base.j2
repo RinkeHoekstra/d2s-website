@@ -43,16 +43,20 @@
 
     {% block body %}
 
-    <div class="container" id="top">
+			{% block header %}
+			
+			{% endblock header %}
+    
+<div class="container" id="top">
       {% block container %}
 
-			<div class="logo">
-				<img src="{{ media_url('img/logo-no-text-150dpi.png') }}"/>
-			</div>
+			{# <div class="logo"> #}
+			{# 	<img src="{{ media_url('img/logo-no-text-150dpi.png') }}"/> #}
+			{# </div> #}
       <div class="content">
         {# This is where the bulk of the content will go #}
         {% block content %}
-        {% endblock %}
+        {% endblock content %}
       </div>
 
       <footer>
