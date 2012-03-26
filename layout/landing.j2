@@ -10,10 +10,10 @@
   <div class="span12">
 	  {% block header %}
 		<div class="hero-unit landing">
-		  <h1>
-		    {% block page_title %}{{ resource.meta.title }}{% endblock %}
-		  </h1>
-		  {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %}
+		  {# <h1> #}
+		    {% block page_title %}<img src="{{ media_url( 'img/title.png' ) }}" alt="{{ resource.meta.title }}">{% endblock %}
+		  {# </h1> #}
+		  {# {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %} #}
 		</div>
 	  {% endblock header %}
   </div>
