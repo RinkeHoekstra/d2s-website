@@ -9,7 +9,7 @@ plugins:
     - hyde.ext.plugins.sorter.SorterPlugin
 context:
     data:
-        site_title: Data2Semantics
+        site_title: Data<slim>2</slim>Semantics
         author:
             name: Rinke Hoekstra
             url: "http://www.data2semantics.org"

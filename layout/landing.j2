@@ -12,8 +12,8 @@
 		<div class="hero-unit landing">
 		  <h1>
 		    {% block page_title %}{{ resource.meta.title }}{% endblock %}
-		    {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %}
 		  </h1>
+		  {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %}
 		</div>
 	  {% endblock header %}
   </div>
