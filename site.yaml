@@ -9,18 +9,21 @@ plugins:
     - hyde.ext.plugins.sorter.SorterPlugin
 context:
     data:
-        site_title: Data<slim>2</slim>Semantics
+        site_title: Data2Semantics
+        site_description: From Data to Semantics for Scientific Data Publishers
         author:
             name: Rinke Hoekstra
-            url: "http://www.data2semantics.org"
+            url: "http://www.rinkehoekstra.nl"
+        base_url: "http://www.data2semantics.org"
         google_analytics_id: UA-XXXXX-YY
         home_url: /index.html
+        rss_url: /rss.xml
         menu:
             - title: Home
               url: /index.html
             - title: Blog
               url: /blog.html
-              
+
 sorter:
     blog:
       attr: meta.date

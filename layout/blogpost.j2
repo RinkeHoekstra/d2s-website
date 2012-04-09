@@ -1,4 +1,20 @@
-{% extends "columns.j2" %}
+{% extends "blog.j2" %}
 {% block main %}
+<div class="row">
+    <div class="span1">
+        <div class="sidehead">
+            <h2>{{ resource.meta.date.strftime('%d %b') }}</h2>
+        </div>
+    </div>
+    <div class="span9">
+        <div class="page-header">
+        	<h1><a href=" '/' + {{ resource.relative_path }}">{{ resource.meta.title }}</a> <small>{{ resource.meta.summary }}</small><small class="postmeta"> by {{ resource.meta.author }} on <strong>{{ resource.meta.date.strftime('%d %B %Y') }}</strong></small>
+        </div>
+        {% filter markdown|typogrify -%}
 {% include resource.meta.text %}
+        {%- endfilter %}
+
+</div>
+</div>
+
 {% endblock main %}

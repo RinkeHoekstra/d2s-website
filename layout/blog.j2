@@ -1,33 +1,41 @@
-{# Blog template #}
+{# Landing template #}
+
+
 
 {% extends "columns.j2" %}
 
-{% block header %}
-	<div class="jumbotron subhead" id="overview">
-	  <h1>
-	    {% block page_title %}{{ resource.meta.title }}{% endblock %}
-	    {% if resource.meta.subtitle %}<p class="lead">{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %}
-	  </h1>
-	</div>
-{% endblock header %}
 
 
 {% block main %}
 
 {% for res in resource.node.walk_resources_sorted_by_blog() %}
-
-<div class="page-header">
-	<h1><a href="{{ res.meta.file }}">{{ res.meta.title }}</a> <small>{{ res.meta.summary }}</small><small class="postmeta"> by {{ res.meta.author }} on <strong>{{ res.meta.date.strftime('%d %B %Y') }}</strong></small>
-</div>
-
+<div class="row">
+    <div class="span1">
+        <div class="sidehead">
+            <h2>{{ res.meta.date.strftime('%d %b') }}</h2>
+        </div>
+    </div>
+    <div class="span9">
+        <div class="page-header">
+        	<h1><a href="{{ '/' + res.relative_path }}">{{ res.meta.title }}</a> <small>{{ res.meta.summary }}</small><small class="postmeta"> by {{ res.meta.author }} on <strong>{{ res.meta.date.strftime('%d %B %Y') }}</strong></small>
+        </div>
+        {% filter markdown|typogrify -%}
 {% include res.meta.text %}
-
+        {%- endfilter %}
+</div>
+</div>
 {% endfor %}
 
 {% endblock main %}
 
 {% block sidebar %}
 
-{{ super() }}
+{% for res in resource.node.walk_resources_sorted_by_blog() %}
+
+<div class="well">
+	<h4><a href="{{ '/'+ res.relative_path }}">{{ res.meta.title }}</a> <small>{{ res.meta.summary }}</small><br/><small class="postmeta"><strong>{{ res.meta.date.strftime('%d %B %Y') }}</strong></small></h4>
+</div>
+
+{% endfor %}
 
 {% endblock sidebar %}

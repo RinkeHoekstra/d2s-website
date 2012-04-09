@@ -1,0 +1,3 @@
+We have opened up a Data2Semantics [GitHub](http://github.com) organisation for publishing all (open source) code produced within the Data2Semantics project. Point your browser (or Git client) to <http://github.com/Data2Semantics> for the latest and greatest!
+
+

@@ -3,31 +3,25 @@
 {% extends "topbar.j2" %}
 
 
+{% block header %}
+		<div class="header">
+		  {# <h1> #}
+		    {% block page_title %}<img src="{{ media_url( 'img/title.png' ) }}" alt="{{ resource.meta.title }}">{% endblock %}
+		  {# </h1> #}
+		  {# {% if resource.meta.subtitle %}<p>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</p>{% endif %} #}
+		</div>
+{% endblock header %}
 
 {% block content %}
 
 
 
-<div class="row-fluid">
-	
+<div class="row">
   <div class="span10">
-	  {% block header %}
-		<div class="hero-unit">
-		  <h1>
-		    {% block page_title %}{{ resource.meta.title }}{% endblock %}
-		    {% if resource.meta.subtitle %}<small>{% block page_subtitle %}{{ resource.meta.subtitle }}{% endblock %}</small>{% endif %}
-		  </h1>
-		</div>
-	  {% endblock header %}
-	
-      {% filter markdown -%}
       {% block main %}{% endblock %}
-      {%- endfilter %}
   </div>
   <div class="span2">
-		<div class="well sidebar-nav">
-    	{% block sidebar %}{% endblock %}
-		</div>
+      {% block sidebar %}{% endblock %}
   </div>
 </div>
 
