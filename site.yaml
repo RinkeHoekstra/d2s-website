@@ -28,7 +28,7 @@ sorter:
     blog:
       attr: meta.date
       filters:
-          source_file.kind: meta
+          source_file.kind: html
           meta.type: "post"
       reverse: True
     pages:
